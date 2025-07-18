@@ -1,67 +1,86 @@
-# Mancan Digital
+![mancan.digital logo](./full-logo.png)  
+# 🧠 mancan.digital
 
-![Mancan Digital Logo](./full-logo.png)
-
-**Mancan Digital** is a technology-driven software development company specializing in building robust applications and automating business processes using modern and scalable technologies.
-
----
-
-## 🧩 Who We Are
-
-We are passionate developers focused on crafting intelligent, efficient, and reliable software solutions. Our mission is to empower businesses by transforming ideas into high-performance digital systems — with an emphasis on **automation**, **scalability**, and **clean code**.
+**Empowering Small Businesses with Smart IT Solutions**
 
 ---
 
-## 💻 What We Do
+## 🌍 About Us
 
-- Custom Software Development  
-- Business Process Automation  
-- API Design & Integration  
-- Web Applications (Frontend & Backend)  
-- Enterprise Solutions  
+**mancan.digital** is an IT consultancy focused on helping small businesses reach operational excellence through **custom technology solutions**. From full stack web and desktop development to automation, RPA, and AI integration, we provide smart, efficient tools tailored to your business needs.
 
 ---
 
-## 🛠️ Core Technologies
+## 💼 Our Services
 
-We build with tools that deliver performance, reliability, and scalability:
+We specialize in delivering **end-to-end IT solutions** with a focus on:
 
-### Languages & Frameworks
-- **Java** — enterprise-level backend development  
-- **Kotlin** — modern Android apps and backend services  
-- **JavaScript / TypeScript** — full-stack development  
-- **Angular** — dynamic and powerful frontend interfaces  
+- 🔁 **Automation & RPA (Robotic Process Automation):**  
+  Eliminate repetitive manual tasks and streamline operations.
 
-### Tools & Platforms
-- **Spring Boot**, **Ktor** — backend frameworks  
-- **Node.js** — lightweight backend or scripting  
-- **Docker**, **CI/CD**, **GitHub Actions** — automation and deployment  
-- **PostgreSQL**, **MongoDB** — databases  
-- **REST APIs**, **GraphQL** — data and service communication  
+- 🧠 **AI Integration:**  
+  Implement intelligent systems that support smarter decisions and optimized processes.
 
----
+- 🌐 **Full Stack Development:**  
+  Web solutions from front to back—responsive, modern, and built for growth.
 
-## 🚀 Our Focus
+- 💻 **Desktop Applications:**  
+  Business-oriented desktop software tailored to your specific workflows.
 
-We specialize in:
-
-- Building fast, maintainable, and testable software systems  
-- Designing intelligent automation workflows that save time and reduce errors  
-- Delivering clean and well-documented code  
-- Agile development with continuous integration and delivery
+- 🛠️ **IT Consultancy & Digital Strategy:**  
+  Guidance and support to make the most of technology in your business.
 
 ---
 
-## 📫 Contact Us
+## 🕰️ Eras of Actuation
 
-We're always excited to collaborate, solve problems, and innovate.
+**1. Foundation Phase:**  
+Serving local small businesses in **Brazil**, offering foundational IT services and basic process automation.
 
-**📧 Email:** [contact@mancandigital.com](mailto:contact@mancandigital.com)  
-**🌐 Website:** [www.mancandigital.com](https://www.mancandigital.com)  
-**🔗 LinkedIn:** [Mancan Digital](https://linkedin.com/company/mancandigital)
+**2. Growth Phase (Now):**  
+Focused on **AI, automation**, and **custom development**, establishing a solid client base and refining solutions.
+
+**3. Expansion Phase (Next):**  
+Opening up to **global clients**, with the mission to bring scalable, automation-driven digital transformation to businesses worldwide.
 
 ---
 
-## 📄 License
+## 🎯 Our Mission
 
-All content is © 2025 Mancan Digital. All rights reserved.
+To **empower small businesses** by transforming complex and time-consuming processes into streamlined, intelligent, and fully digital workflows.
+
+---
+
+## 📈 Market Strategy
+
+Our approach is guided by:
+
+- Partnering with **SMBs** to deeply understand their needs  
+- Building **long-term, result-driven relationships**  
+- Serving **Brazil and LATAM** while expanding into **global markets**  
+- Remaining on the **cutting edge of AI and automation**
+
+---
+
+## 📬 Contact Us
+
+📧 **Email:** info@mancan.digital  
+🌐 **Website:** [https://mancan.digital](https://mancan.digital)  
+📍 Based in Brazil — Available worldwide
+
+---
+
+## 🇧🇷 Sobre Nós (Português)
+
+**mancan.digital** é uma empresa de consultoria em TI que oferece soluções inteligentes para **pequenas empresas**. Atuamos com **automação de processos**, **RPA**, **desenvolvimento full stack**, **sistemas desktop** e **integração com inteligência artificial**.
+
+### Serviços:
+
+- Automação e RPA  
+- Desenvolvimento Web e Desktop  
+- Integrações com IA  
+- Consultoria Estratégica em TI
+
+Nossa missão é ajudar empresas a **otimizar seus processos**, **reduzir custos operacionais** e **alavancar resultados com tecnologia**. Embora estejamos sediados no Brasil, trabalhamos com clientes no mundo todo.
+
+📧 **Contato:** info@mancan.digital
