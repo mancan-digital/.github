@@ -115,6 +115,44 @@
             from, to { background-color: transparent; }
             50% { background-color: var(--color-accent-purple-light); }
         }
+
+        /* Card specific styles */
+        .card {
+            background-color: var(--color-section-bg);
+            padding: 1.5rem; /* p-6 */
+            border-radius: 0.75rem; /* rounded-xl */
+            box-shadow: 0 4px 10px var(--color-shadow-light); /* shadow-lg */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%; /* Ensure cards in a row have equal height */
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px var(--color-shadow-dark);
+        }
+
+        .card-icon {
+            margin-bottom: 1rem; /* mb-4 */
+            color: var(--color-accent-blue); /* Primary accent for card icons */
+            width: 2.5rem; /* w-10 */
+            height: 2.5rem; /* h-10 */
+        }
+
+        .card-title {
+            font-weight: 600; /* font-semibold */
+            font-size: 1.25rem; /* text-xl */
+            margin-bottom: 0.5rem; /* mb-2 */
+            color: var(--color-accent-purple-light); /* Secondary accent for card titles */
+        }
+
+        .card-description {
+            font-size: 0.95rem; /* text-base */
+            color: var(--color-text-dark);
+            flex-grow: 1; /* Allows description to take up available space */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -130,7 +168,7 @@
             </p>
             <div class="mt-8 flex justify-center space-x-4">
                 <button onclick="switchLang('en')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
-                    English �🇸
+                    English 🇺🇸
                 </button>
                 <button onclick="switchLang('pt')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
                     Português 🇧🇷
@@ -156,38 +194,33 @@
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Our Core Services: Driving Innovation
                 </h2>
-                <ul class="list-none space-y-4 text-lg text-[var(--color-text-dark)]">
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                            Automation & RPA:
-                        </strong> Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
-                            AI Integration:
-                        </strong> Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter business outcomes.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                            Full Stack Development:
-                        </strong> Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles, ensuring scalability and responsiveness.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            Desktop Applications:
-                        </strong> Custom software solutions designed to streamline complex business workflows, providing powerful, secure, and intuitive tools tailored to your specific needs.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
-                            IT Consultancy & Strategy:
-                        </strong> Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing your competitive advantage.
-                    </li>
-                </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Automation & RPA</h3>
+                        <p class="card-description">Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
+                        <h3 class="card-title">AI Integration</h3>
+                        <p class="card-description">Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter business outcomes.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <h3 class="card-title">Full Stack Development</h3>
+                        <p class="card-description">Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles, ensuring scalability and responsiveness.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Desktop Applications</h3>
+                        <p class="card-description">Custom software solutions designed to streamline complex business workflows, providing powerful, secure, and intuitive tools tailored to your specific needs.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">IT Consultancy & Strategy</h3>
+                        <p class="card-description">Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing your competitive advantage.</p>
+                    </div>
+                </div>
             </section>
 
             <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
@@ -202,15 +235,31 @@
 
             <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
-                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0  0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Market Strategy: Global Reach, Local Impact
                 </h2>
-                <ul class="list-none space-y-3 text-lg text-[var(--color-text-dark)]">
-                    <li><strong class="text-[var(--color-accent-blue)]">Strategic Partnerships:</strong> Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</li>
-                    <li><strong class="text-[var(--color-accent-blue)]">Result-Driven Relationships:</strong> Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</li>
-                    <li><strong class="text-[var(--color-accent-blue)]">Expansive Footprint:</strong> Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</li>
-                    <li><strong class="text-[var(--color-accent-blue)]">Innovation Leadership:</strong> Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</li>
-                </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">Strategic Partnerships</h3>
+                        <p class="card-description">Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Result-Driven Relationships</h3>
+                        <p class="card-description">Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                        <h3 class="card-title">Expansive Footprint</h3>
+                        <p class="card-description">Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Innovation Leadership</h3>
+                        <p class="card-description">Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</p>
+                    </div>
+                </div>
             </section>
 
             <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
@@ -247,38 +296,33 @@
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Nossos Serviços Principais: Impulsionando a Inovação
                 </h2>
-                <ul class="list-none space-y-4 text-lg text-[var(--color-text-dark)]">
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
-                            Automação e RPA:
-                        </strong> Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
-                            Integração com IA:
-                        </strong> Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma, resultando em melhores resultados de negócios.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
-                            Desenvolvimento Full Stack:
-                        </strong> Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native, garantindo escalabilidade e responsividade.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-                            Aplicações Desktop:
-                        </strong> Soluções de software personalizadas projetadas para otimizar fluxos de trabalho de negócios complexos, fornecendo ferramentas poderosas, seguras e intuitivas adaptadas às suas necessidades específicas.
-                    </li>
-                    <li>
-                        <strong class="text-[var(--color-accent-blue)] flex items-center">
-                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
-                            Consultoria e Estratégia de TI:
-                        </strong> Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios e maximizando sua vantagem competitiva.
-                    </li>
-                </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Automação e RPA</h3>
+                        <p class="card-description">Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
+                        <h3 class="card-title">Integração com IA</h3>
+                        <p class="card-description">Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma, resultando em melhores resultados de negócios.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <h3 class="card-title">Desenvolvimento Full Stack</h3>
+                        <p class="card-description">Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native, garantindo escalabilidade e responsividade.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Aplicações Desktop</h3>
+                        <p class="card-description">Soluções de software personalizadas projetadas para otimizar fluxos de trabalho de negócios complexos, fornecendo ferramentas poderosas, seguras e intuitivas adaptadas às suas necessidades específicas.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">Consultoria e Estratégia de TI</h3>
+                        <p class="card-description">Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios e maximizando sua vantagem competitiva.</p>
+                    </div>
+                </div>
             </section>
 
             <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
@@ -296,18 +340,34 @@
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
                     Estratégia de Mercado: Alcance Global, Impacto Local
                 </h2>
-                <ul class="list-none space-y-3 text-lg text-[var(--color-text-dark)]">
-                    <li><strong class="text-[var(--color-accent-blue)]">Parcerias Estratégicas:</strong> Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.</li>
-                    <li><strong class="text-[var(--color-accent-blue)]">Relações Orientadas a Resultados:</strong> Construindo parcerias de longo prazo e mutuamente benéficas, focadas em resultados mensuráveis e crescimento sustentável.</li>
-                    <li><strong class="text-[var(--color-accent-blue)]">Presença Abrangente:</strong> Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.</li>
-                    <li><strong class="text-[var(--color-accent-blue)]">Liderança em Inovação:</strong> Integrando continuamente os mais recentes avanços em IA, automação, e tecnologias de nuvem para manter clientes à frente.</li>
-                </ul>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6 mt-8">
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                        <h3 class="card-title">Parcerias Estratégicas</h3>
+                        <p class="card-description">Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                        <h3 class="card-title">Relações Orientadas a Resultados</h3>
+                        <p class="card-description">Construindo parcerias de longo prazo e mutuamente benéficas, focadas em resultados mensuráveis e crescimento sustentável.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                        <h3 class="card-title">Presença Abrangente</h3>
+                        <p class="card-description">Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.</p>
+                    </div>
+                    <div class="card">
+                        <svg class="card-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <h3 class="card-title">Liderança em Inovação</h3>
+                        <p class="card-description">Integrando continuamente os mais recentes avanços em IA, automação, e tecnologias de nuvem para manter clientes à frente.</p>
+                    </div>
+                </div>
             </section>
 
             <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
                 <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
                     <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
-                    Connect With Us
+                    Fale Conosco
                 </h2>
                 <p class="text-lg text-[var(--color-text-dark)] mb-2">
                     Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
@@ -402,4 +462,3 @@
     </script>
 </body>
 </html>
-�
