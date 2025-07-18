@@ -1,219 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mancan.digital</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-color: #121212;
-      --text-color: #ffffff;
-      --header-bg: #09247B;
-      --accent-color: #454CFF;
-      --section-bg: #1a1a1a;
-      --button-bg: #6A1B9A;
-      --button-hover: #8E3FBB;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mancan.digital - Next-Gen IT Solutions</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Custom Tailwind Configuration - Embedded for self-containment */
+        :root {
+            --color-bg-primary: #F8F8F8; /* Light theme background */
+            --color-text-dark: #333333; /* Dark text for light theme */
+            --color-header-bg: #09247B;
+            --color-accent-blue: #454CFF;
+            --color-accent-purple-light: #8E3FBB;
+            --color-section-bg: #FFFFFF; /* White background for sections */
+            --color-button-primary: #6A1B9A;
+            --color-button-hover: #8E3FBB;
+            --color-shadow-light: rgba(69, 76, 255, 0.1); /* Adjusted for light theme */
+            --color-shadow-dark: rgba(142, 63, 187, 0.1); /* Adjusted for light theme */
+        }
 
-    body {
-      font-family: 'Outfit', sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: var(--bg-color);
-      color: var(--text-color);
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    header {
-      background: var(--header-bg);
-      color: white;
-      padding: 60px 20px 40px;
-      text-align: center;
-      position: relative;
-    }
+        body {
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.7;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-dark); /* Using dark text color */
+            overflow-x: hidden;
+        }
 
-    .logo {
-      max-width: 120px;
-      display: block;
-      margin: 0 auto 20px;
-    }
+        /* Header background animation */
+        .header-bg-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            opacity: 0.2; /* Slightly increased opacity for visibility on light background */
+        }
 
-    main {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-    }
+        .header-bg-animation::before,
+        .header-bg-animation::after {
+            content: '';
+            position: absolute;
+            background: radial-gradient(circle, var(--color-accent-blue) 0%, transparent 70%);
+            animation: pulse-glow 10s infinite alternate;
+            border-radius: 50%;
+        }
 
-    section {
-      background: var(--section-bg);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 20px rgba(69, 76, 255, 0.1);
-      border-left: 5px solid var(--accent-color);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease;
-    }
+        .header-bg-animation::before {
+            width: 300px;
+            height: 300px;
+            top: -50px;
+            left: -50px;
+            animation-delay: 0s;
+        }
 
-    section:hover {
-      transform: translateY(-4px);
-    }
+        .header-bg-animation::after {
+            width: 250px;
+            height: 250px;
+            bottom: -70px;
+            right: -70px;
+            animation-delay: 2s;
+            background: radial-gradient(circle, var(--color-accent-purple-light) 0%, transparent 70%);
+        }
 
-    h1, h2 {
-      color: var(--accent-color);
-      font-weight: 700;
-    }
+        @keyframes pulse-glow {
+            0% { transform: scale(0.8); opacity: 0.1; }
+            50% { transform: scale(1.1); opacity: 0.2; }
+            100% { transform: scale(0.8); opacity: 0.1; }
+        }
 
-    ul {
-      padding-left: 20px;
-    }
+        /* Section entry animation */
+        .section-animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
 
-    a {
-      color: var(--accent-color);
-      text-decoration: none;
-    }
+        .section-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
 
-    a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: var(--header-bg);
-      color: #bbb;
-      font-size: 0.9em;
-    }
-
-    .lang-toggle {
-      margin-top: 10px;
-      text-align: center;
-    }
-
-    .lang-toggle button {
-      background-color: var(--button-bg);
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      margin: 0 10px;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .lang-toggle button:hover {
-      background-color: var(--button-hover);
-      transform: scale(1.05);
-    }
-
-    .lang-section {
-      display: contents;
-    }
-  </style>
+        /* Custom styles for icon sizing */
+        .icon-small {
+            width: 1.25rem; /* 20px */
+            height: 1.25rem; /* 20px */
+            vertical-align: middle;
+            margin-right: 0.5rem;
+            color: var(--color-accent-purple-light);
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <img src="dark_logo.png" alt="mancan.digital logo" class="logo" />
-    <h1>mancan.digital</h1>
-    <p>Empowering Small Businesses with Smart IT Solutions</p>
-    <div class="lang-toggle">
-      <button onclick="switchLang('en')">English 🇺🇸</button>
-      <button onclick="switchLang('pt')">Português 🇧🇷</button>
-    </div>
-  </header>
+<body class="antialiased">
+    <header class="relative bg-[var(--color-header-bg)] text-white py-16 md:py-24 text-center overflow-hidden rounded-b-3xl shadow-lg">
+        <div class="header-bg-animation"></div>
+        <div class="relative z-10 px-4">
+            <img src="https://placehold.co/120x120/1A1A1A/FFFFFF?text=Logo" alt="mancan.digital logo" class="mx-auto mb-6 w-24 h-24 rounded-full border-4 border-[var(--color-accent-blue)] shadow-xl" />
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-3 leading-tight tracking-tight text-[var(--color-accent-blue)]">
+                mancan.<span class="text-[var(--color-accent-purple-light)]">digital</span>
+            </h1>
+            <p class="text-lg md:text-2xl font-light text-gray-300 max-w-2xl mx-auto">
+                Future-Proof Your Business: Intelligent Solutions for Tomorrow's Challenges
+            </p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <button onclick="switchLang('en')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
+                    English 🇺🇸
+                </button>
+                <button onclick="switchLang('pt')" class="bg-[var(--color-button-primary)] hover:bg-[var(--color-button-hover)] text-white font-medium py-3 px-6 rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-[var(--color-accent-blue)] focus:ring-opacity-75">
+                    Português 🇧🇷
+                </button>
+            </div>
+        </div>
+    </header>
 
-  <main>
-    <div id="lang-en" class="lang-section">
-      <section>
-        <h2>About Us</h2>
-        <p>mancan.digital is an IT consultancy focused on helping small businesses reach operational excellence through custom technology solutions. From full stack web and desktop development to automation, RPA, and AI integration, we provide smart, efficient tools tailored to your business needs.</p>
-      </section>
+    <main class="container mx-auto px-4 py-12 md:py-20 flex flex-col gap-10">
+        <div id="lang-en" class="lang-section">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    About Us: Architects of Digital Transformation
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    At mancan.digital, we are an IT consultancy focused on helping small businesses reach operational excellence through custom technology solutions. As seasoned engineers and strategists, we leverage **disruptive technologies** like AI, RPA, and **cloud-native solutions** to re-engineer business operations for unparalleled efficiency and growth. We partner with small businesses to unlock their full technological potential.
+                </p>
+            </section>
 
-      <section>
-        <h2>Services</h2>
-        <ul>
-          <li><strong>Automation & RPA:</strong> Eliminate repetitive manual tasks and streamline operations.</li>
-          <li><strong>AI Integration:</strong> Smarter decisions and optimized processes.</li>
-          <li><strong>Full Stack Development:</strong> Responsive, modern web apps.</li>
-          <li><strong>Desktop Applications:</strong> Custom software for business workflows.</li>
-          <li><strong>IT Consultancy & Strategy:</strong> Make the most of technology in your business.</li>
-        </ul>
-      </section>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Our Core Services: Driving Innovation
+                </h2>
+                <ul class="list-none space-y-4 text-lg text-[var(--color-text-dark)]">
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                            Automation & RPA:
+                        </strong> Eliminate repetitive manual tasks and streamline operations with intelligent robotic process automation, boosting efficiency and reducing costs.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
+                            AI Integration:
+                        </strong> Leverage machine learning and predictive analytics to inform strategic decisions and autonomously optimize workflows for smarter business outcomes.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            Full Stack Development:
+                        </strong> Crafting robust, high-performance web and mobile applications with cutting-edge frameworks and cloud-native principles, ensuring scalability and responsiveness.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            Desktop Applications:
+                        </strong> Custom software solutions designed to streamline complex business workflows, providing powerful, secure, and intuitive tools tailored to your specific needs.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                            IT Consultancy & Strategy:
+                        </strong> Strategic guidance to optimize your technology investments, ensuring alignment with business goals and maximizing your competitive advantage.
+                    </li>
+                </ul>
+            </section>
 
-      <section>
-        <h2>Our Mission</h2>
-        <p>To empower small businesses by transforming complex processes into streamlined, intelligent, and digital workflows.</p>
-      </section>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Our Mission: Empowering Digital Futures
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    Our mission is to empower small businesses by transforming complex processes into streamlined, intelligent, and digital workflows. We are committed to delivering innovative solutions that drive efficiency, foster growth, and build a resilient digital infrastructure for every client.
+                </p>
+            </section>
 
-      <section>
-        <h2>Market Strategy</h2>
-        <ul>
-          <li>Partnering with SMBs to deeply understand their needs</li>
-          <li>Building long-term, result-driven relationships</li>
-          <li>Serving Brazil and LATAM, expanding globally</li>
-          <li>Staying on the cutting edge of AI and automation</li>
-        </ul>
-      </section>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Market Strategy: Global Reach, Local Impact
+                </h2>
+                <ul class="list-none space-y-3 text-lg text-[var(--color-text-dark)]">
+                    <li><strong class="text-[var(--color-accent-blue)]">Strategic Partnerships:</strong> Collaborating closely with SMBs to deeply understand their unique operational needs and challenges.</li>
+                    <li><strong class="text-[var(--color-accent-blue)]">Result-Driven Relationships:</strong> Building long-term, mutually beneficial partnerships focused on measurable outcomes and sustainable growth.</li>
+                    <li><strong class="text-[var(--color-accent-blue)]">Expansive Footprint:</strong> Serving clients across Brazil and LATAM, with a clear vision for global expansion and impact.</li>
+                    <li><strong class="text-[var(--color-accent-blue)]">Innovation Leadership:</strong> Continuously integrating the latest advancements in AI, automation, and cloud technologies to keep clients ahead.</li>
+                </ul>
+            </section>
 
-      <section>
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:info@mancan.digital">info@mancan.digital</a></p>
-        <p>Based in Brazil — Available worldwide</p>
-      </section>
-    </div>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                    Connect With Us
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)] mb-2">
+                    Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
+                        <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        info@mancan.digital
+                    </a>
+                </p>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    <strong class="text-[var(--color-accent-blue)]">Global Reach:</strong> Based in Brazil — Available worldwide.
+                </p>
+            </section>
+        </div>
 
-    <div id="lang-pt" class="lang-section" style="display:none">
-      <section>
-        <h2>Sobre Nós</h2>
-        <p>mancan.digital é uma empresa de consultoria em TI que oferece soluções inteligentes para pequenas empresas. Atuamos com automação de processos, RPA, desenvolvimento full stack, sistemas desktop e integração com inteligência artificial.</p>
-      </section>
+        <!-- Portuguese Content -->
+        <div id="lang-pt" class="lang-section" style="display:none">
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                    Sobre Nós: Arquitetos da Transformação Digital
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    Na mancan.digital, somos uma consultoria de TI focada em ajudar pequenas empresas a alcançar a excelência operacional através de soluções tecnológicas personalizadas. Como engenheiros e estrategistas experientes, utilizamos **tecnologias disruptivas** como IA, RPA e **soluções nativas da nuvem** para reestruturar as operações de negócios, visando eficiência e crescimento incomparáveis. Nós nos unimos a pequenas empresas para desbloquear todo o seu potencial tecnológico.
+                </p>
+            </section>
 
-      <section>
-        <h2>Serviços</h2>
-        <ul>
-          <li>Automação e RPA</li>
-          <li>Desenvolvimento Web e Desktop</li>
-          <li>Integrações com IA</li>
-          <li>Consultoria Estratégica em TI</li>
-        </ul>
-      </section>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Nossos Serviços Principais: Impulsionando a Inovação
+                </h2>
+                <ul class="list-none space-y-4 text-lg text-[var(--color-text-dark)]">
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                            Automação e RPA:
+                        </strong> Elimine tarefas manuais repetitivas e otimize operações com automação robótica de processos inteligente, aumentando a eficiência e reduzindo custos.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h-1.5a2.5 2.5 0 0 0 0 5H18"></path><path d="M20 10h2"></path><path d="M2 10h2"></path><path d="M7.5 8H6a2 2 0 0 0 0 5h1.5"></path><path d="M10 0v24"></path><path d="M14 0v24"></path><path d="M0 10h24"></path></svg>
+                            Integração com IA:
+                        </strong> Utilize aprendizado de máquina e análise preditiva para embasar decisões estratégicas e otimizar fluxos de trabalho de forma autônoma, resultando em melhores resultados de negócios.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                            Desenvolvimento Full Stack:
+                        </strong> Construção de aplicações web e móveis robustas e de alto desempenho com frameworks de ponta e princípios cloud-native, garantindo escalabilidade e responsividade.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                            Aplicações Desktop:
+                        </strong> Soluções de software personalizadas projetadas para otimizar fluxos de trabalho de negócios complexos, fornecendo ferramentas poderosas, seguras e intuitivas adaptadas às suas necessidades específicas.
+                    </li>
+                    <li>
+                        <strong class="text-[var(--color-accent-blue)] flex items-center">
+                            <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 12V2L4 5l8 10 8-10-8-3z"></path><path d="M12 22L4 19l8-10 8 10-8 3z"></path></svg>
+                            Consultoria e Estratégia de TI:
+                        </strong> Orientação estratégica para otimizar seus investimentos em tecnologia, garantindo alinhamento com os objetivos de negócios e maximizando sua vantagem competitiva.
+                    </li>
+                </ul>
+            </section>
 
-      <section>
-        <h2>Missão</h2>
-        <p>Capacitar pequenas empresas transformando processos complexos em fluxos de trabalho digitais, inteligentes e otimizados.</p>
-      </section>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                    Nossa Missão: Capacitando Futuros Digitais
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)]">
+                    Nossa missão é capacitar pequenas empresas transformando processos complexos em fluxos de trabalho digitais, inteligentes e otimizados. Estamos comprometidos em entregar soluções inovadoras que impulsionam a eficiência, promovem o crescimento e constroem uma infraestrutura digital resiliente para cada cliente.
+                </p>
+            </section>
 
-      <section>
-        <h2>Estratégia de Mercado</h2>
-        <ul>
-          <li>Parcerias com PMEs para entender suas necessidades</li>
-          <li>Relações duradouras e orientadas por resultados</li>
-          <li>Atuação no Brasil e América Latina, com expansão global</li>
-          <li>Atualização constante com IA e automação</li>
-        </ul>
-      </section>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 18a2 2 0 0 0 2-2V7l-7-7H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-3.5a.5.5 0 0 1 0-1H17zM12 3v4a2 2 0 0 1-2 2H6"></path></svg>
+                    Estratégia de Mercado: Alcance Global, Impacto Local
+                </h2>
+                <ul class="list-none space-y-3 text-lg text-[var(--color-text-dark)]">
+                    <li><strong class="text-[var(--color-accent-blue)]">Parcerias Estratégicas:</strong> Colaborando de perto com PMEs para entender profundamente suas necessidades e desafios operacionais únicos.</li>
+                    <li><strong class="text-[var(--color-accent-blue)]">Relações Orientadas a Resultados:</strong> Construindo parcerias de longo prazo e mutuamente benéficas, focadas em resultados mensuráveis e crescimento sustentável.</li>
+                    <li><strong class="text-[var(--color-accent-blue)]">Presença Abrangente:</strong> Atendendo clientes no Brasil e na América Latina, com uma clara visão de expansão e impacto global.</li>
+                    <li><strong class="text-[var(--color-accent-blue)]">Liderança em Inovação:</strong> Integrando continuamente os mais recentes avanços em IA, automação e tecnologias de nuvem para manter clientes à frente.</li>
+                </ul>
+            </section>
 
-      <section>
-        <h2>Contato</h2>
-        <p>Email: <a href="mailto:info@mancan.digital">info@mancan.digital</a></p>
-        <p>Com sede no Brasil — Disponível mundialmente</p>
-      </section>
-    </div>
-  </main>
+            <section class="section-animate bg-[var(--color-section-bg)] p-8 md:p-10 rounded-2xl shadow-xl border-l-8 border-[var(--color-accent-blue)] hover:translate-y-[-6px] transition-transform duration-300 ease-in-out">
+                <h2 class="text-3xl md:text-4xl font-bold mb-5 text-[var(--color-accent-purple-light)] flex items-center">
+                    <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92V21a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v13.92ZM18 10H6M18 6H6"></path></svg>
+                    Connect With Us
+                </h2>
+                <p class="text-lg text-[var(--color-text-dark)] mb-2">
+                    Email: <a href="mailto:info@mancan.digital" class="text-[var(--color-accent-purple-light)] hover:underline flex items-center">
+                        <svg class="icon-small" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+                        info@mancan.digital
+                    </a>
+                </p>
+                <p class="text-lg text-[var(--color-accent-blue)]">
+                    <strong class="text-[var(--color-accent-blue)]">Global Reach:</strong> Based in Brazil — Available worldwide.
+                </p>
+            </section>
+        </div>
+    </main>
 
-  <footer>
-    <p>&copy; 2025 mancan.digital</p>
-  </footer>
+    <footer class="bg-[var(--color-header-bg)] text-gray-400 py-8 text-center text-sm rounded-t-3xl shadow-inner">
+        <p>&copy; 2025 mancan.digital. All rights reserved. Empowering your digital future.</p>
+    </footer>
 
-  <script>
-    function switchLang(lang) {
-      document.getElementById('lang-en').style.display = lang === 'en' ? 'contents' : 'none';
-      document.getElementById('lang-pt').style.display = lang === 'pt' ? 'contents' : 'none';
-    }
-  </script>
+    <script>
+        // Language switching functionality
+        function switchLang(lang) {
+            document.getElementById('lang-en').style.display = lang === 'en' ? 'contents' : 'none';
+            document.getElementById('lang-pt').style.display = lang === 'pt' ? 'contents' : 'none';
+        }
+
+        // Initialize language to English on load
+        document.addEventListener('DOMContentLoaded', () => {
+            switchLang('en');
+        });
+
+        // Intersection Observer for scroll animations
+        const sections = document.querySelectorAll('.section-animate');
+
+        const observerOptions = {
+            root: null, // viewport
+            rootMargin: '0px',
+            threshold: 0.1 // Trigger when 10% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target); // Stop observing once animated
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
