@@ -1,4 +1,3 @@
-![mancan.digital logo](./full-logo.png)  
 # 🧠 mancan.digital
 
 **Empowering Small Businesses with Smart IT Solutions**
