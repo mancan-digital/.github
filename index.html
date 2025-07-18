@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mancan.digital</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #121212;
+      --text-color: #ffffff;
+      --header-bg: #09247B;
+      --accent-color: #454CFF;
+      --section-bg: #1a1a1a;
+      --button-bg: #6A1B9A;
+      --button-hover: #8E3FBB;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: var(--bg-color);
+      color: var(--text-color);
+    }
+
+    header {
+      background: var(--header-bg);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .logo {
+      max-width: 120px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    section {
+      background: var(--section-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(69, 76, 255, 0.1);
+      border-left: 5px solid var(--accent-color);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-4px);
+    }
+
+    h1, h2 {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: var(--header-bg);
+      color: #bbb;
+      font-size: 0.9em;
+    }
+
+    .lang-toggle {
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .lang-toggle button {
+      background-color: var(--button-bg);
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      margin: 0 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .lang-toggle button:hover {
+      background-color: var(--button-hover);
+      transform: scale(1.05);
+    }
+
+    .lang-section {
+      display: contents;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="dark_logo.png" alt="mancan.digital logo" class="logo" />
+    <h1>mancan.digital</h1>
+    <p>Empowering Small Businesses with Smart IT Solutions</p>
+    <div class="lang-toggle">
+      <button onclick="switchLang('en')">English 🇺🇸</button>
+      <button onclick="switchLang('pt')">Português 🇧🇷</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="lang-en" class="lang-section">
+      <section>
+        <h2>About Us</h2>
+        <p>mancan.digital is an IT consultancy focused on helping small businesses reach operational excellence through custom technology solutions. From full stack web and desktop development to automation, RPA, and AI integration, we provide smart, efficient tools tailored to your business needs.</p>
+      </section>
+
+      <section>
+        <h2>Services</h2>
+        <ul>
+          <li><strong>Automation & RPA:</strong> Eliminate repetitive manual tasks and streamline operations.</li>
+          <li><strong>AI Integration:</strong> Smarter decisions and optimized processes.</li>
+          <li><strong>Full Stack Development:</strong> Responsive, modern web apps.</li>
+          <li><strong>Desktop Applications:</strong> Custom software for business workflows.</li>
+          <li><strong>IT Consultancy & Strategy:</strong> Make the most of technology in your business.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Our Mission</h2>
+        <p>To empower small businesses by transforming complex processes into streamlined, intelligent, and digital workflows.</p>
+      </section>
+
+      <section>
+        <h2>Market Strategy</h2>
+        <ul>
+          <li>Partnering with SMBs to deeply understand their needs</li>
+          <li>Building long-term, result-driven relationships</li>
+          <li>Serving Brazil and LATAM, expanding globally</li>
+          <li>Staying on the cutting edge of AI and automation</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contact</h2>
+        <p>Email: <a href="mailto:info@mancan.digital">info@mancan.digital</a></p>
+        <p>Based in Brazil — Available worldwide</p>
+      </section>
+    </div>
+
+    <div id="lang-pt" class="lang-section" style="display:none">
+      <section>
+        <h2>Sobre Nós</h2>
+        <p>mancan.digital é uma empresa de consultoria em TI que oferece soluções inteligentes para pequenas empresas. Atuamos com automação de processos, RPA, desenvolvimento full stack, sistemas desktop e integração com inteligência artificial.</p>
+      </section>
+
+      <section>
+        <h2>Serviços</h2>
+        <ul>
+          <li>Automação e RPA</li>
+          <li>Desenvolvimento Web e Desktop</li>
+          <li>Integrações com IA</li>
+          <li>Consultoria Estratégica em TI</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Missão</h2>
+        <p>Capacitar pequenas empresas transformando processos complexos em fluxos de trabalho digitais, inteligentes e otimizados.</p>
+      </section>
+
+      <section>
+        <h2>Estratégia de Mercado</h2>
+        <ul>
+          <li>Parcerias com PMEs para entender suas necessidades</li>
+          <li>Relações duradouras e orientadas por resultados</li>
+          <li>Atuação no Brasil e América Latina, com expansão global</li>
+          <li>Atualização constante com IA e automação</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Contato</h2>
+        <p>Email: <a href="mailto:info@mancan.digital">info@mancan.digital</a></p>
+        <p>Com sede no Brasil — Disponível mundialmente</p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 mancan.digital</p>
+  </footer>
+
+  <script>
+    function switchLang(lang) {
+      document.getElementById('lang-en').style.display = lang === 'en' ? 'contents' : 'none';
+      document.getElementById('lang-pt').style.display = lang === 'pt' ? 'contents' : 'none';
+    }
+  </script>
+</body>
+</html>
